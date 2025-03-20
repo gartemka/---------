@@ -5,6 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const questionModal = document.getElementById("questionModal");
     const questionText = document.getElementById("questionText");
     const questionImage = document.getElementById("questionImage");
+    const answerText = document.getElementById("answerText");
+    const showAnswerButton = document.getElementById("showAnswer");
+
 
     const categories = [
         "Математический калейдоскоп",
@@ -67,9 +70,6 @@ document.addEventListener("DOMContentLoaded", () => {
             { points: 20, text: 'Сколько директоров руководило техникумом и колледжем за 70 лет?', answer: 'Элементы системы', image: 'img/elements.jpeg' },
         ]
     };
-    
-
-  
     if (categoryIndex !== null) {
         categoryTitle.textContent = categories[categoryIndex];
         loadQuestions(questionsData[categoryIndex]);
@@ -84,7 +84,6 @@ document.addEventListener("DOMContentLoaded", () => {
             questionButton.textContent = `${question.points} баллов`;
             questionButton.dataset.points = question.points;
 
-            // Проверяем, был ли этот вопрос уже открыт
             if (localStorage.getItem(`answered_${categoryIndex}_${question.points}`)) {
                 questionButton.classList.add("answered");
                 questionButton.style.backgroundColor = "gray";
@@ -99,16 +98,20 @@ document.addEventListener("DOMContentLoaded", () => {
     function openQuestion(question, button) {
         questionText.textContent = question.text;
         questionImage.src = question.image;
-        questionModal.style.display = "flex";
+        answerText.textContent = `Ответ: ${question.answer}`;
+        answerText.style.display = "none"; 
 
-        // Блокируем вопрос после нажатия
+        questionModal.style.display = "flex";
         button.classList.add("answered");
         button.style.backgroundColor = "gray";
         button.disabled = true;
 
-        // Сохраняем в localStorage, чтобы сохранить состояние после перезагрузки
         localStorage.setItem(`answered_${categoryIndex}_${question.points}`, "true");
     }
+
+    showAnswerButton.addEventListener("click", () => {
+        answerText.style.display = "block";
+    });
 
     document.getElementById("closeQuestion").addEventListener("click", () => {
         questionModal.style.display = "none";
