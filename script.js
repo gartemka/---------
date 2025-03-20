@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const questionText = document.getElementById("questionText");
     const questionImage = document.getElementById("questionImage");
     const answerText = document.getElementById("answerText");
-    const showAnswerButton = document.getElementById("showAnswer");
-
+    const showAnswerBtn = document.getElementById("showAnswer");
+    const closeQuestionBtn = document.getElementById("closeQuestion");
 
     const categories = [
         "Математический калейдоскоп",
@@ -70,6 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
             { points: 20, text: 'Сколько директоров руководило техникумом и колледжем за 70 лет?', answer: 'Элементы системы', image: 'img/elements.jpeg' },
         ]
     };
+ 
     if (categoryIndex !== null) {
         categoryTitle.textContent = categories[categoryIndex];
         loadQuestions(questionsData[categoryIndex]);
@@ -77,20 +78,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function loadQuestions(questions) {
         questionsDiv.innerHTML = "";
-
-        questions.forEach((question) => {
+        questions.forEach((question, index) => {
             const questionButton = document.createElement("button");
             questionButton.classList.add("question");
             questionButton.textContent = `${question.points} баллов`;
-            questionButton.dataset.points = question.points;
+            questionButton.dataset.index = index;
 
-            if (localStorage.getItem(`answered_${categoryIndex}_${question.points}`)) {
-                questionButton.classList.add("answered");
+            // Проверяем состояние кнопки в localStorage
+            if (localStorage.getItem(`question_${categoryIndex}_${index}`) === "answered") {
                 questionButton.style.backgroundColor = "gray";
-                questionButton.disabled = true;
             }
 
-            questionButton.addEventListener("click", () => openQuestion(question, questionButton));
+            questionButton.addEventListener("click", () => {
+                openQuestion(question, questionButton);
+            });
+
             questionsDiv.appendChild(questionButton);
         });
     }
@@ -98,26 +100,32 @@ document.addEventListener("DOMContentLoaded", () => {
     function openQuestion(question, button) {
         questionText.textContent = question.text;
         questionImage.src = question.image;
-        answerText.textContent = `Ответ: ${question.answer}`;
-        answerText.style.display = "none"; 
-
+        answerText.style.display = "none";
+        showAnswerBtn.style.display = "block";
         questionModal.style.display = "flex";
-        button.classList.add("answered");
-        button.style.backgroundColor = "gray";
-        button.disabled = true;
 
-        localStorage.setItem(`answered_${categoryIndex}_${question.points}`, "true");
+        // Обновляем цвет кнопки при нажатии
+        button.style.backgroundColor = "gray";
+        localStorage.setItem(`question_${categoryIndex}_${button.dataset.index}`, "answered");
+
+        showAnswerBtn.onclick = () => {
+            answerText.textContent = `Ответ: ${question.answer}`;
+            answerText.style.display = "block";
+            showAnswerBtn.style.backgroundColor = "red";
+        };
     }
 
-    showAnswerButton.addEventListener("click", () => {
-        answerText.style.display = "block";
-    });
-
-    document.getElementById("closeQuestion").addEventListener("click", () => {
+    closeQuestionBtn.addEventListener("click", () => {
         questionModal.style.display = "none";
+        showAnswerBtn.style.backgroundColor = "#007bff";
     });
 
     document.getElementById("backToCategories").addEventListener("click", () => {
         window.location.href = "index.html";
+    });
+
+    document.getElementById("resetQuestions").addEventListener("click", () => {
+        localStorage.clear();
+        document.querySelectorAll(".question").forEach(btn => btn.style.backgroundColor = "");
     });
 });
