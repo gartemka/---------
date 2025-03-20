@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вопросы</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 id="categoryTitle">Название категории</h1>
+    
+    <div id="questions"></div>
+
+    <button id="backToCategories">Назад</button>
+
+    <div id="questionModal" class="modal">
+        <div class="modal-content">
+            <h2 id="questionText">Вопрос</h2>
+            <img id="questionImage" src="" alt="Изображение вопроса">
+            <button id="showAnswer">Показать ответ</button>
+            <p id="answerText" style="display: none; font-weight: bold;"></p>
+            <button id="closeQuestion">Закрыть</button>
+        </div>
+    </div>
+
+    <script src="questionScript.js"></script>
+</body>
+</html>
