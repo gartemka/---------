@@ -23,14 +23,20 @@
             color: white;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: center;  /* Центрируем содержимое header */
             padding: 20px;
             position: relative;
             top: 0;
         }
+        #logo {
+            width: 100px;  /* Увеличиваем размер логотипа */
+            height: auto;
+            margin-right: 20px;  /* Отступ между логотипом и текстом */
+        }
         #game-title {
             font-size: 36px;
             transition: color 0.3s;
+            text-align: center;  /* Центрируем текст */
         }
         .category:hover ~ header #game-title,
         .category:hover ~ footer {
@@ -90,7 +96,11 @@
 </head>
 <body>
     <header>
-        <h1 id="game-title">Своя игра</h1>
+        <img id="logo" src="img/d.png" alt="Логотип колледжа"> <!-- Логотип увеличен -->
+        <div>
+            <h1 id="game-title">Своя игра</h1>
+            <p>created by gartemka</p>
+        </div>
     </header>
     <div class="grid-container">
         <button class="category" onclick="selectCategory(0)"><img src="img/math.jpg" alt="Математика">Математический калейдоскоп</button>

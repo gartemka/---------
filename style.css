@@ -119,8 +119,37 @@ h1 {
     border-radius: 10px;
     cursor: pointer;
 }
+
 .answered {
     pointer-events: none; /* Отключает клики */
     color: #bbb;
     background-color: gray;
+}
+
+/* Стили для кнопки "Показать ответ" */
+#showAnswer {
+    display: none;
+    margin-top: 15px;
+    padding: 12px 25px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#showAnswer:hover {
+    background-color: #27ae60;
+    transform: scale(1.1);
+}
+
+/* Таймер */
+.timer {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #ff0000; /* красный цвет для таймера */
 }
