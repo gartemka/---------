@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const questionsData = {
         0: [ // Математический калейдоскоп
-            { points: 5, text: 'Кому принадлежит высказывание: "Математику уже затем учить надо, что она ум в порядок приводит"?', answer: 'Михаилу Васильевичу Ломоносову', image: 'img/lomonosov.jpg' },
+            { points: 5, text: 'Кому принадлежит высказывание : "Математику уже затем учить надо, что она ум в порядок приводит"?', answer: 'Михаилу Васильевичу Ломоносову', image: 'img/lomonosov.jpg' },
             { points: 10, text: 'Решите ребус: 3,1415... СЬ', answer: 'Подпись', image: 'img/rebus1.jpg' },
             { points: 15, text: 'Решите ребус: 5=1', answer: 'Не усложняйте задачу', image: 'img/rebus2.jpg' },
             { points: 20, text: 'Сколько раз надо сложить бумагу толщиной листа А4, чтобы она бы достигла Луны?', answer: '43', image: 'img/luna.jpg' },
@@ -68,8 +68,8 @@ document.addEventListener("DOMContentLoaded", () => {
         ],
         7: [ // Чёрный ящик
             { points: 5, text: 'В каком году начал функционировать техникум?', answer: '1955', image: 'img/black_box.jpeg' },
-            { points: 10, text: 'Вставьте пропущенное число вместо x:\n\nx февраля 1955 года к учёбе в машиностроительном техникуме приступило x групп.', answer: '18000', image: 'img/system.jpeg' },
-            { points: 15, text: 'Сколько специальностей в колледже в настоящее время?', answer: '8', image: 'img/feedback.jpeg' },
+            { points: 10, text: 'Вставьте пропущенное число вместо x:\n\nx февраля 1955 года к учёбе в машиностроительном техникуме приступило x групп.', answer: '7', image: 'img/system.jpeg' },
+            { points: 15, text: 'Сколько специальностей в колледже в настоящее время?', answer: '9', image: 'img/feedback.jpeg' },
             { points: 20, text: 'Сколько директоров руководило техникумом и колледжем за 70 лет?', answer: '6', image: 'img/elements.jpeg' },
         ]
     };
