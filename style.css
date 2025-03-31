@@ -99,11 +99,13 @@ h1 {
     padding: 20px;
     border-radius: 10px;
     text-align: center;
-    width: 80%;
-    max-width: 600px;
-    font-size: 28px; /* Увеличенный размер шрифта ответа */
-    font-weight: bold; 
+    width: 90%; /* Сделал окно шире */
+    max-width: 800px; /* Увеличил максимальную ширину */
+    font-size: 23px; /* Увеличил размер шрифта */
+    overflow-y: auto; /* Добавлена прокрутка */
+    max-height: 80vh; /* Ограничил максимальную высоту окна */
 }
+
 
 .modal img {
     width: 100%;
