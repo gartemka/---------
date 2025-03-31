@@ -26,9 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const questionsData = {
         0: [ // Математический калейдоскоп
             { points: 5, text: 'Кому принадлежит высказывание : "Математику уже затем учить надо, что она ум в порядок приводит"?', answer: 'Михаилу Васильевичу Ломоносову', image: 'img/lomonosov.jpg' },
-            { points: 10, text: 'Решите ребус: 3,1415... СЬ', answer: 'Подпись', image: 'img/rebus1.jpg' },
-            { points: 15, text: 'Решите ребус: 5=1', answer: 'Не усложняйте задачу', image: 'img/rebus2.jpg' },
-            { points: 20, text: 'Сколько раз надо сложить бумагу толщиной листа А4, чтобы она бы достигла Луны?', answer: '43', image: 'img/luna.jpg' },
+            { points: 10, text: 'Решите ребус:', answer: 'список', image: 'img/rebus1.jpg' },
+            { points: 15, text: 'Решите ребус: 5=1', answer: '5 = 1', image: 'img/rebus2.jpg' },
+            { points: 20, text: 'Сколько раз надо сложить бумагу толщиной листа А4, чтобы она достигла Луны?', answer: '43', image: 'img/luna.jpg' },
         ],
         1: [ // Биологическое разнообразие
             { points: 5, text: 'Какая часть растения отвечает за поглощение воды?', answer: 'Корни', image: 'img/roots.jpg' },

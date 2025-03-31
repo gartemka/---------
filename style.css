@@ -101,6 +101,8 @@ h1 {
     text-align: center;
     width: 80%;
     max-width: 600px;
+    font-size: 28px; /* Увеличенный размер шрифта ответа */
+    font-weight: bold; 
 }
 
 .modal img {
